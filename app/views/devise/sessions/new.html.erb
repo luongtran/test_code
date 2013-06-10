@@ -1,0 +1,32 @@
+ <div id="login-panel">
+            <div class="well">
+              <div class="row-fluid">
+                <div class="span8 offset2">
+                  <div id="login-panel-inner">
+                  	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-inline") do |f| %>
+                      <div class="control-group">
+                        <label class="control-label">Email</label>
+                        <div class="controls">
+                        	<%= f.email_field :email, :class => "input-block-level" %>
+                          
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">Password</label>
+                        <div class="controls">
+                        	<%= f.password_field :password, :class => "input-block-level" %>
+                          
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls-row">
+                        	<%= f.submit "Sign in", :class => "btn btn-success span4" %>
+                          <a href="javascript:;" class="btn btn-primary span6 offset2"><i class="icon-lock icon-white"></i>&nbsp;Login with account Facebook</a>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

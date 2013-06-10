@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<%= stylesheet_link_tag    "application", :media => "all" %>
+  	<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  	<%= stylesheet_link_tag    "bootstrap-responsive.min", :media => "all" %>
+  	
+  	<%= javascript_include_tag "application" %>
+  	<%= javascript_include_tag "bootstrap.min" %>
+  	<%= csrf_meta_tags %>
+    <title>test project</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span10 offset1">
+          <div id="menutop">
+            <div class="navbar">
+              <div class="navbar-inner"><a href="/" class="brand">Test project</a>
+                <ul class="nav">
+                  <li><a href="/" class="active">Home</a></li>
+                  <li>
+                  	<%= link_to "Sign in", new_session_path(resource_name), :class => "active" %>
+              	  </li>
+                  <li>
+                  	<%= link_to "Sign up", new_registration_path(resource_name), :class => "active" %>
+              	  </li>
+              	  <% if current_user %>
+              	  <li>
+              	  	<%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+              	  </li>
+              	  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

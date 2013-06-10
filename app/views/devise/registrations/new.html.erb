@@ -1,0 +1,76 @@
+<div id="signup-panel">
+            <div class="well">
+              <div class="row-fluid">
+                <div class="span8 offset2">
+                  <div id="signup-panel-inner">
+                  	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :class => "form-inline") do |f| %>
+  						<%= devise_error_messages! %>
+                      <div class="control-group">
+                        <label class="control-label">Email</label>
+                        <div class="controls">
+                    	  <%= f.email_field :email, :class => "input-block-level" %>
+                         
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">Password</label>
+                        <div class="controls">
+                        	<%= f.password_field :password, :class => "input-block-level" %>
+                          
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">confirm password</label>
+                        <div class="controls">
+                        	<%= f.password_field :password_confirmation, :class => "input-block-level" %>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label">First name - last name</label>
+                        <div class="controls-row">
+                          <div class="span6">
+                          	<%= f.text_field :firstname, :class => "input-block-level", :placeholder => "First name" %>
+                          </div>
+                          <div class="span6">
+                          	<%= f.text_field :lastname, :class => "input-block-level", :placeholder => "Last name" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls-row"><span class="span6">
+                            <label class="control-label">gender</label>
+                            <%= f.select :gender, options_for_select([['Male', 'male'], ['Female', ['female']]]) %>
+                            <select name="gender" class="input-block-level">
+                              <option value="">select gender</option>
+                              <option value="">Male</option>
+                              <option value="">Female</option>
+                            </select></span><span class="span6">
+                            <label class="control-label">Birthday</label>
+                            <input type="text" name="birthday" placeholder="Your birthday" class="input-block-level"></span></div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls-row"><span class="span6">
+                            <label class="control-label">organisation</label>
+                            <%= f.select :organisation_id, options_for_select([['None', 0]] + organisations.map { |org| [org.name, org.id] }), :class => "input-block-level" %>
+                            
+                            </span>
+                            <span class="span6">
+                            <label class="control-label">User Type</label>
+                            <%= f.select :user_type_id, options_for_select(UserType.all.map { |type| [type.type_name, type.id] }), :class => "input-block-level" %>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="controls-row">
+                          <input type="submit" value="Register account" class="btn btn-success span4">
+                          <%= link_to "Sign Up with account Facebook", user_omniauth_authorize_path(:facebook) ,:class => "btn btn-primary span6 offset2"%>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
