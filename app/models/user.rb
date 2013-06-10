@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   belongs_to :organisation
   has_many :authentications, :dependent => :destroy
-  
+  belongs_to :user_type
   
   def apply_omniauth(omni)
     authentications.build(:provider => omni['provider'],

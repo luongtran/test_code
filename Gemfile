@@ -20,8 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem "jquery-ui-rails"
+gem 'jquery-rails', '< 3.0.0'
 gem 'execjs'
 
 gem 'therubyracer'
@@ -31,7 +30,7 @@ gem 'devise', '~>2.1.2'
 gem 'omniauth-facebook'
 gem 'fb_graph'
 
-gem 'activeadmin'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 
 
 
